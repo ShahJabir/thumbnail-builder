@@ -18,3 +18,12 @@ def upload_image(
         use_unique_file_name=True,
     )
     return upload_response.url
+
+
+def get_variants(base_url: str) -> dict:
+    """Return 3 sizes variant URLs using imagekit transformations."""
+    return {
+        "youtube": f"{base_url}?tr=w-1280,h-720,c-maintain_ratio,fo-auto",
+        "shorts": f"{base_url}?tr=w-1080,h-1920,c-maintain_ratio,fo-auto",
+        "square": f"{base_url}?tr=w-1080,h-1080,c-maintain_ratio,fo-auto",
+    }
